@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:padding="16dp"
+    tools:context="com.ayokhedma.ayokhedma.UserInterface.RegisterActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/name_user"
+            android:id="@+id/name_reg"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:gravity="right"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/name_field_reg"
+            android:layout_below="@+id/name_reg"
+            android:layout_alignLeft="@+id/name_reg"
+            android:background="#ffffff"
+            android:layout_alignEnd="@+id/name_reg"
+            android:layout_alignRight="@+id/name_reg" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/email"
+            android:id="@+id/email_reg"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/name_field_reg"
+            android:gravity="right"
+            android:layout_alignParentRight="true" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/email_field_reg"
+            android:layout_below="@+id/email_reg"
+            android:layout_alignLeft="@+id/email_reg"
+            android:background="#ffffff"
+            android:layout_alignEnd="@+id/email_reg"
+            android:layout_alignRight="@+id/email_reg" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/username"
+            android:id="@+id/username_reg"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/email_field_reg"
+            android:gravity="right"
+            android:layout_alignParentRight="true"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/username_field_reg"
+            android:layout_below="@+id/username_reg"
+            android:layout_alignLeft="@+id/username_reg"
+            android:background="#ffffff"
+            android:layout_alignEnd="@+id/username_reg"
+            android:layout_alignRight="@+id/username_reg" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/password"
+            android:id="@+id/password_reg"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            android:layout_below="@+id/username_field_reg"
+            android:layout_alignLeft="@+id/username_field_reg"
+            android:layout_alignEnd="@+id/username_field_reg"
+            android:layout_marginTop="20dp"
+            android:layout_alignRight="@+id/username_field_reg" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/password_field_reg"
+            android:background="#ffffff"
+            android:layout_below="@+id/password_reg"
+            android:layout_alignLeft="@+id/password_reg"
+            android:layout_alignEnd="@+id/password_reg"
+            android:layout_alignRight="@+id/password_reg" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/register_button"
+            android:id="@+id/register"
+            android:padding="15dp"
+            android:layout_below="@+id/password_field_reg"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/round_corner"
+            android:layout_marginTop="52dp"
+            android:onClick="register"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login_button"
+            android:id="@+id/login_link"
+            android:clickable="true"
+            android:padding="5dp"
+            android:layout_below="@+id/register"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp" />
+
+
+    </RelativeLayout>
+</RelativeLayout>
