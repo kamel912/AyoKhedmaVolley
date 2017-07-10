@@ -51,7 +51,7 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
                 if(sharedpreferences.contains("userInfo")){
-                    link = "http://10.0.2.2/myapp/login.php";
+                    link = "http://www.fatmanoha.com/ayokhedma/login.php";
                     gson = new Gson();
                     String userjson = sharedpreferences.getString("userInfo","");
                     user = gson.fromJson(userjson,UserModel.class);
@@ -63,6 +63,7 @@ public class SplashActivity extends AppCompatActivity {
                     startActivity(intent);
                     SplashActivity.this.finish();
                 }
+
             }
         }, SPLASH_DISPLAY_LENGTH);
     }
@@ -82,7 +83,7 @@ public class SplashActivity extends AppCompatActivity {
                     intent = new Intent(SplashActivity.this,MainActivity.class);
                     startActivity(intent);
                 }
-
+                SplashActivity.this.finish();
             }
         },
                 new Response.ErrorListener() {

@@ -33,7 +33,7 @@ public class ObjectActivity extends AppCompatActivity {
     TabLayout tabLayout;
     FragmentPageAdapter pageAdapter;
     ImageView obj_pic;
-    private String objimage_path = "http://10.0.2.2/myapp/images/object/";
+    private String objimage_path = "http://www.fatmanoha.com/ayokhedma/images/object/";
 
 
 

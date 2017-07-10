@@ -50,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
         username_field = (EditText) findViewById(R.id.username_field);
         password_field = (EditText) findViewById(R.id.password_field);
 
-        link = "http://10.0.2.2/myapp/login.php";
+        link = "http://www.fatmanoha.com/ayokhedma/login.php";
 
         sharedpreferences = getSharedPreferences("userprefences", Context.MODE_PRIVATE);
     }

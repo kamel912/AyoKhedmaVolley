@@ -79,7 +79,7 @@ public class CategoryObjectsActivity extends AppCompatActivity  {
         progress.setMax(100);
         progress.show();
 
-        spinnerLink = "http://10.0.2.2/myapp/region.php";
+        spinnerLink = "http://www.fatmanoha.com/ayokhedma/region.php";
         spinner = (Spinner) findViewById(R.id.spinner);
         layoutManager = new GridLayoutManager(CategoryObjectsActivity.this,1);
         recyclerView = (RecyclerView) findViewById(R.id.objs_recycler);
@@ -135,11 +135,11 @@ public class CategoryObjectsActivity extends AppCompatActivity  {
                                 regid = Integer.toString(parent.getSelectedItemPosition()+1);
                                 if (regid.equals("1")){
                                     progress.show();
-                                    link = "http://10.0.2.2/myapp/category.php?catid=" + catid;
+                                    link = "http://www.fatmanoha.com/ayokhedma/category.php?catid=" + catid;
                                     objects();
                                 }else {
                                     progress.show();
-                                    link = "http://10.0.2.2/myapp/category.php?catid=" + catid + "&regid=" + regid;
+                                    link = "http://www.fatmanoha.com/ayokhedma/category.php?catid=" + catid + "&regid=" + regid;
                                     objects();
                                 }
                             }

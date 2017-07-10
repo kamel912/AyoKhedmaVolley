@@ -40,9 +40,9 @@ public class MainActivity extends AppCompatActivity {
     GridLayoutManager layoutManager;
     private CategoryAdapter adapter;
     private Gson gson;
-    private String link = "http://10.0.2.2/myapp/category.php?limit="+limit;
+    private String link = "http://www.fatmanoha.com/ayokhedma/category.php?limit="+limit;
     ProgressDialog progress;
-    private String image_path = "http://10.0.2.2/myapp/images/mainlogo.png";
+    private String image_path = "http://www.fatmanoha.com/ayokhedma/images/mainlogo.png";
     private ImageView logo;
     SearchView searchView;
     boolean doubleBackToExitPressedOnce = false;

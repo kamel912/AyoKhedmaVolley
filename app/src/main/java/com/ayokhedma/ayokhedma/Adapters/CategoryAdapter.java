@@ -26,7 +26,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView
 
     private Context context;
     List<CategoryModel> categories = new ArrayList<>();
-    private String image_path = "http://10.0.2.2/myapp/images/category/";
+    private String image_path = "http://www.fatmanoha.com/ayokhedma/images/category/";
 
 
 

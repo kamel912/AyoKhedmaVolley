@@ -125,7 +125,7 @@ public class CommentFragment extends Fragment{
         objectActivity = (ObjectActivity) getActivity();
         id = objectActivity.getIntent().getStringExtra("id");
 
-        link = "http://10.0.2.2/myapp/comment.php?objid=" + id;
+        link = "http://www.fatmanoha.com/ayokhedma/comment.php?objid=" + id;
         getData();
     }
     private void getData(){
@@ -177,7 +177,7 @@ public class CommentFragment extends Fragment{
         String subject = subject_field.getText().toString();
         String commentBody = commentBody_field.getText().toString();
         comment = new CommentModel(userId,subject,commentBody,id);
-        link = "http://10.0.2.2/myapp/addcomment.php";
+        link = "http://www.fatmanoha.com/ayokhedma/addcomment.php";
         final String Commentjson = gson.toJson(comment);
         StringRequest stringRequest = new StringRequest(
                 Request.Method.POST,

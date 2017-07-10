@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/search_item"
-        android:icon="@drawable/ic_search_black_24dp"
+        android:icon="@mipmap/search_black"
         android:orderInCategory="101"
         android:title="@string/search"
         app:actionViewClass="android.support.v7.widget.SearchView"

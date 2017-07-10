@@ -63,7 +63,7 @@ public class PhoneFragment extends Fragment {
         objectActivity = (ObjectActivity) getActivity();
         id = objectActivity.getIntent().getStringExtra("id");
 
-        link = "http://10.0.2.2/myapp/object.php?objid=" + id;
+        link = "http://www.fatmanoha.com/ayokhedma/object.php?objid=" + id;
         getData();
     }
 

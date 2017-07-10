@@ -46,7 +46,7 @@ public class RegisterActivity extends AppCompatActivity {
         progress.setMessage("Please wait ....");
         progress.setMax(100);
 
-        link = "http://10.0.2.2/myapp/reg.php";
+        link = "http://www.fatmanoha.com/ayokhedma/reg.php";
 
         sharedpreferences = getSharedPreferences("userprefences", Context.MODE_PRIVATE);
 

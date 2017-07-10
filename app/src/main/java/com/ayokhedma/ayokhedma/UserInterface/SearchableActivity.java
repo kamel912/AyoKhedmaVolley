@@ -76,7 +76,7 @@ public class SearchableActivity extends AppCompatActivity  {
             if (searchView != null) {
                 searchView.clearFocus();
             }
-            link = "http://10.0.2.2/myapp/search.php?search="+ query;
+            link = "http://www.fatmanoha.com/ayokhedma/search.php?search="+ query;
             objects();
         }
 

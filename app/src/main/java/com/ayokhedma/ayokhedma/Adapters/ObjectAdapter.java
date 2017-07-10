@@ -28,7 +28,7 @@ public class ObjectAdapter extends RecyclerView.Adapter<ObjectAdapter.MyViewHold
 
     private Context context;
     private List<ObjectModel> objects = new ArrayList<>();
-    private String image_path = "http://10.0.2.2/myapp/images/category/";
+    private String image_path = "http://www.fatmanoha.com/ayokhedma/images/category/";
 
 
 
