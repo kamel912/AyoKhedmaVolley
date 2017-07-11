@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +32,7 @@ public class DescriptionFragment extends Fragment{
     private Gson gson;
     ProgressDialog progress;
     private ObjectActivity objectActivity;
+    RatingBar ratingBar;
 
 
 
@@ -47,8 +49,13 @@ public class DescriptionFragment extends Fragment{
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_description, container, false);
         address = (TextView) view.findViewById(R.id.address);
+        ratingBar = (RatingBar) view.findViewById(R.id.rating);
+        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
 
-
+            }
+        });
 
 
         return view;
