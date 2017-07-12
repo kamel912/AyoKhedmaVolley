@@ -203,4 +203,10 @@ public class CategoryObjectsActivity extends AppCompatActivity  {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(CategoryObjectsActivity.this,CategoriesActivity.class);
+        startActivity(intent);
+    }
 }
