@@ -1,12 +1,15 @@
 package com.ayokhedma.ayokhedma.Fragments;
 
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -79,13 +82,23 @@ public class PhoneFragment extends Fragment {
                         gson = new Gson();
                         object = gson.fromJson(response, ObjectModel.class);
                         phones = object.getPhone();
-                        String phone = phones.get(0);
+                        final String phone = phones.get(0);
                         if (phone == null) {
                             listView.setVisibility(View.GONE);
                             emtyView.setVisibility(View.VISIBLE);
                         }else {
                             adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, phones);
                             listView.setAdapter(adapter);
+                            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                @Override
+                                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                   String phone = "tel:" + parent.getItemAtPosition(position).toString().trim();
+                                    Intent intent = new Intent(Intent.ACTION_DIAL);
+                                    intent.setData(Uri.parse(phone));
+                                    startActivity(intent);
+
+                                }
+                            });
                         }
                     }
                 },

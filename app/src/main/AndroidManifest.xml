@@ -46,11 +46,15 @@
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
         </activity>
-        <activity android:name=".UserInterface.LoginActivity"
-            android:noHistory="true" android:excludeFromRecents="true"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".UserInterface.RegisterActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".UserInterface.LoginActivity"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".UserInterface.RegisterActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".UserInterface.CategoriesActivity"></activity>
     </application>
 
 </manifest>

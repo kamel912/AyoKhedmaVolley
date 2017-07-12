@@ -1,5 +1,6 @@
 package com.ayokhedma.ayokhedma.UserInterface;
 
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -7,8 +8,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -33,6 +36,7 @@ public class SplashActivity extends AppCompatActivity {
     Gson gson;
     UserModel user;
     String link;
+    ImageView imageView;
 
 
     @Override
@@ -42,6 +46,9 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         ActionBar actionBar = getSupportActionBar();
+
+        imageView = (ImageView) findViewById(R.id.splash_logo);
+        flipit(imageView);
 
         sharedpreferences = getSharedPreferences("userprefences", Context.MODE_PRIVATE);
         if (null != actionBar) {
@@ -102,6 +109,12 @@ public class SplashActivity extends AppCompatActivity {
             }
         };
         MySingleton.getInstance(this).addRequestQueue(stringRequest);
+
+    }
+    private void flipit(final View viewToFlip) {
+        ObjectAnimator flip = ObjectAnimator.ofFloat(viewToFlip, "rotationY", 0f, 360f);
+        flip.setDuration(SPLASH_DISPLAY_LENGTH);
+        flip.start();
 
     }
 

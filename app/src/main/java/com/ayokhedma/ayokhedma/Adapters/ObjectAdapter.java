@@ -16,6 +16,9 @@ import com.ayokhedma.ayokhedma.Models.ObjectModel;
 import com.ayokhedma.ayokhedma.R;
 import com.ayokhedma.ayokhedma.UserInterface.ObjectActivity;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.drawable.GlideDrawable;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +31,8 @@ public class ObjectAdapter extends RecyclerView.Adapter<ObjectAdapter.MyViewHold
 
     private Context context;
     private List<ObjectModel> objects = new ArrayList<>();
-    private String image_path = "http://www.fatmanoha.com/ayokhedma/images/category/";
+    private String image_path = "http://www.fatmanoha.com/ayokhedma/images/object/";
+    private String image_path2 = "http://www.fatmanoha.com/ayokhedma/images/category/";
 
 
 
@@ -51,14 +55,17 @@ public class ObjectAdapter extends RecyclerView.Adapter<ObjectAdapter.MyViewHold
     public void onBindViewHolder(MyViewHolder holder, int position) {
         ObjectModel object = objects.get(position);
         holder.name.setText(object.getCategory() + " "+ object.getName());
-        holder.region.setText(object.getRegion());
+        holder.region.setText("المنطقة : " + object.getRegion());
         holder.count.setText("عدد التقييمات : " + object.getCount());
-        holder.region.setBackgroundColor(Color.parseColor(object.getColor()));
+       // holder.region.setBackgroundColor(Color.parseColor(object.getColor()));
         holder.address.setText("شارع " + object.getStreet() + " " + object.getBeside());
         holder.rate.setText(Float.toString(object.getRate()) + "/5");
         holder.rating.setRating(object.getRate());
         String path = image_path + object.getId() + ".png";
+        final String path2 = image_path2 + "icon" + object.getCatId() + ".png";
+
         Glide.with(context).load(path).into(holder.obj_pic);
+
 
         holder.itemView.setTag(object);
 
