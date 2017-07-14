@@ -29,7 +29,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".UserInterface.CategoryObjectsActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".UserInterface.ObjectActivity"
             android:screenOrientation="portrait" />
@@ -54,7 +54,9 @@
         <activity
             android:name=".UserInterface.RegisterActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".UserInterface.CategoriesActivity"></activity>
+        <activity
+            android:name=".UserInterface.CategoriesActivity"
+            android:launchMode="singleTop" />
     </application>
 
 </manifest>

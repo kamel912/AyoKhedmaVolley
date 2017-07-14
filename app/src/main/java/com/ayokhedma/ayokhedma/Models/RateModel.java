@@ -5,13 +5,18 @@ package com.ayokhedma.ayokhedma.Models;
  */
 
 public class RateModel {
-    String objid,userid;
-    float rate;
+    private String objid,userid;
+    private float rate;
 
     public RateModel(String objid, String userid, float rate) {
         this.objid = objid;
         this.userid = userid;
         this.rate = rate;
+    }
+
+    public RateModel(String objid, String userid) {
+        this.objid = objid;
+        this.userid = userid;
     }
 
     public String getObjid() {

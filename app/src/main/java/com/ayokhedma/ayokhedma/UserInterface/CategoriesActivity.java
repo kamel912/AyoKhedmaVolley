@@ -48,7 +48,7 @@ public class CategoriesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_categories);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.obj_toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.cat_toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
@@ -58,7 +58,7 @@ public class CategoriesActivity extends AppCompatActivity {
         progress.show();
 
         layoutManager  = new GridLayoutManager(CategoriesActivity.this, 3);
-        recyclerView = (RecyclerView) findViewById(R.id.main_recycler);
+        recyclerView = (RecyclerView) findViewById(R.id.cat_recycler);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
         categories();

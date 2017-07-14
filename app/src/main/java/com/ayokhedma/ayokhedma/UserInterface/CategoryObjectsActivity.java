@@ -4,9 +4,7 @@ import android.app.ProgressDialog;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -87,6 +85,13 @@ public class CategoryObjectsActivity extends AppCompatActivity  {
         recyclerView.setHasFixedSize(true);
         regions();
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        regions();
+    }
+
     private void objects(){
 
         StringRequest stringRequest = new StringRequest(

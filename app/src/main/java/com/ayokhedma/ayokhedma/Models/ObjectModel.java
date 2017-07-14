@@ -7,11 +7,11 @@ import java.util.List;
  */
 
 public class ObjectModel {
-    private String id,category,catId,name,region,street,beside,description,color,count;
+    private String id,category,catId,name,region,street,beside,description,start1,end1,start2,end2,weekend,color,count;
     private float rate;
     private List<String> phone;
 
-    public ObjectModel(String id, String category, String catId, String name, String region, String street, String beside, String count, float rate, String description, String color, List<String> phone) {
+    public ObjectModel(String id, String category, String catId, String name, String region, String street, String beside, String start2, String weekend, String count, float rate, String description, String start1, String end1, String end2, String color, List<String> phone) {
         this.id = id;
         this.category = category;
         this.catId = catId;
@@ -19,9 +19,14 @@ public class ObjectModel {
         this.region = region;
         this.street = street;
         this.beside = beside;
+        this.start2 = start2;
+        this.weekend = weekend;
         this.rate = rate;
         this.count = count;
         this.description = description;
+        this.start1 = start1;
+        this.end1 = end1;
+        this.end2 = end2;
         this.color = color;
         this.phone = phone;
     }
@@ -64,6 +69,26 @@ public class ObjectModel {
 
     public String getDescription() {
         return description;
+    }
+
+    public String getStart1() {
+        return start1;
+    }
+
+    public String getEnd1() {
+        return end1;
+    }
+
+    public String getStart2() {
+        return start2;
+    }
+
+    public String getEnd2() {
+        return end2;
+    }
+
+    public String getWeekend() {
+        return weekend;
     }
 
     public String getColor() {

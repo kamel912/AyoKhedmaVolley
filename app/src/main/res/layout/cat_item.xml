@@ -23,7 +23,7 @@
             android:layout_height="60dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/bank"/>
+            android:src="@drawable/loading"/>
 
         <TextView
             android:id="@+id/cat_name"
@@ -32,10 +32,9 @@
             android:layout_below="@+id/cat_img"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
-            android:background="@color/bluePrimary"
             android:gravity="center_horizontal|center_vertical"
             android:text="@string/category"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:textSize="15sp" />
 
 

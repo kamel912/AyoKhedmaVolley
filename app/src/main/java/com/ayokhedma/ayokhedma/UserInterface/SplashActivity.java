@@ -11,6 +11,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -48,7 +50,10 @@ public class SplashActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
 
         imageView = (ImageView) findViewById(R.id.splash_logo);
-        flipit(imageView);
+
+        Animation animation = AnimationUtils.loadAnimation(SplashActivity.this, R.anim.splash);
+        animation.setRepeatMode(Animation.REVERSE);
+        imageView.startAnimation(animation);
 
         sharedpreferences = getSharedPreferences("userprefences", Context.MODE_PRIVATE);
         if (null != actionBar) {
@@ -111,11 +116,6 @@ public class SplashActivity extends AppCompatActivity {
         MySingleton.getInstance(this).addRequestQueue(stringRequest);
 
     }
-    private void flipit(final View viewToFlip) {
-        ObjectAnimator flip = ObjectAnimator.ofFloat(viewToFlip, "rotationY", 0f, 360f);
-        flip.setDuration(SPLASH_DISPLAY_LENGTH);
-        flip.start();
 
-    }
 
 }

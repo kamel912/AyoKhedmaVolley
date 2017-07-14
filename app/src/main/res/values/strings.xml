@@ -47,5 +47,7 @@
     <string name="sign_up">Sign Up Now</string>
     <string name="addSubject">أضف عنوان</string>
     <string name="add">أضف</string>
+    <string name="addComment">أضف تعليق</string>
+    <string name="cancel">إلغاء</string>
 
 </resources>
