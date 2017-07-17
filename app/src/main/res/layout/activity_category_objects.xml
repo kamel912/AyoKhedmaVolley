@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ayokhedma.ayokhedma.UserInterface.CategoryObjectsActivity">
+    tools:context="com.ayokhedma.ayokhedma.userInterface.CategoryObjectsActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appBarLayout"
@@ -40,7 +40,7 @@
                     android:gravity="right|center_vertical"
                     android:textSize="30sp"
                     android:text="@string/name"
-                    android:textColor="@android:color/black"/>
+                    android:textColor="@android:color/white"/>
 
                 </android.support.v7.widget.Toolbar>
             <TextView
@@ -50,7 +50,7 @@
                 android:layout_gravity="bottom|right"
                 android:gravity="center"
                 android:textSize="20sp"
-                android:textColor="@android:color/black"/>
+                android:textColor="@android:color/white"/>
             <Spinner
                 android:id="@+id/spinner"
                 android:layout_width="200dp"

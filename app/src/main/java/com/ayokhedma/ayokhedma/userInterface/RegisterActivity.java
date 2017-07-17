@@ -1,4 +1,4 @@
-package com.ayokhedma.ayokhedma.UserInterface;
+package com.ayokhedma.ayokhedma.userInterface;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -15,8 +15,8 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.ayokhedma.ayokhedma.Connection.MySingleton;
-import com.ayokhedma.ayokhedma.Models.UserModel;
+import com.ayokhedma.ayokhedma.connection.MySingleton;
+import com.ayokhedma.ayokhedma.models.UserModel;
 import com.ayokhedma.ayokhedma.R;
 import com.google.gson.Gson;
 
@@ -84,6 +84,7 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(RegisterActivity.this,"تم التسجيل بنجاح",Toast.LENGTH_SHORT).show();
                     intent = new Intent(RegisterActivity.this,MainActivity.class);
                     startActivity(intent);
+                    RegisterActivity.this.finish();
                 }
             }
         },

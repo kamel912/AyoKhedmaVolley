@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.ayokhedma.ayokhedma.UserInterface.SearchableActivity">
+    tools:context="com.ayokhedma.ayokhedma.userInterface.SearchableActivity">
 
     <android.support.v7.widget.SearchView
         android:id="@+id/search_view"

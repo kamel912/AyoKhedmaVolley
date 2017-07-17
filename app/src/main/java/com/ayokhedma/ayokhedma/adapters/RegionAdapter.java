@@ -1,4 +1,4 @@
-package com.ayokhedma.ayokhedma.Adapters;
+package com.ayokhedma.ayokhedma.adapters;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -8,8 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.ayokhedma.ayokhedma.Models.RegionModel;
-import com.ayokhedma.ayokhedma.R;
+import com.ayokhedma.ayokhedma.models.RegionModel;
 
 import java.util.List;
 

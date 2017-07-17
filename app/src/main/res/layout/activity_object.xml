@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ayokhedma.ayokhedma.UserInterface.ObjectActivity">
+    android:orientation="vertical"
+    tools:context="com.ayokhedma.ayokhedma.userInterface.ObjectActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/obj_toolbar"
@@ -14,47 +15,31 @@
         app:titleTextAppearance="@style/Toolbar.TitleText">
         <TextView
             android:id="@+id/obj_title"
-            android:gravity="right"
+            android:gravity="right|center_vertical"
             android:text="@string/name"
-            android:textSize="40sp"
+            android:textSize="30sp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textColor="@android:color/black"/>
+            android:textColor="@android:color/white"/>
     </android.support.v7.widget.Toolbar>
-    <ImageView
 
-        android:id="@+id/obj_img"
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:src="@drawable/bank"
-        android:layout_below="@+id/obj_toolbar"
-        android:background="@drawable/gradient"/>
-    <ProgressBar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/view_pager"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:visibility="gone"/>
+        android:layout_height="0dp"
+        android:layout_weight="5"
+         >
+
+    </android.support.v4.view.ViewPager>
     <android.support.design.widget.TabLayout
         android:id="@+id/tab_layout"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:fitsSystemWindows="true"
-        android:background="@drawable/gradient"
-        android:layout_below="@+id/obj_img"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        app:tabTextColor="@android:color/white"
+        app:tabTextColor="@android:color/holo_red_dark"
         app:tabSelectedTextColor="@android:color/black">
 
     </android.support.design.widget.TabLayout>
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/view_pager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/tab_layout">
-
-    </android.support.v4.view.ViewPager>
-</RelativeLayout>
+</LinearLayout>

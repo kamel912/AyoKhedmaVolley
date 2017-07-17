@@ -1,6 +1,7 @@
-package com.ayokhedma.ayokhedma.Fragments;
+package com.ayokhedma.ayokhedma.fragments;
 
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -19,10 +20,10 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.ayokhedma.ayokhedma.Connection.MySingleton;
-import com.ayokhedma.ayokhedma.Models.ObjectModel;
+import com.ayokhedma.ayokhedma.connection.MySingleton;
+import com.ayokhedma.ayokhedma.models.ObjectModel;
 import com.ayokhedma.ayokhedma.R;
-import com.ayokhedma.ayokhedma.UserInterface.ObjectActivity;
+import com.ayokhedma.ayokhedma.userInterface.ObjectActivity;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -40,7 +41,9 @@ public class PhoneFragment extends Fragment {
     private Gson gson;
     ObjectActivity objectActivity;
     String id;
-    private TextView emtyView;
+    private TextView emptyView;
+    ProgressDialog progress;
+
 
     public PhoneFragment() {
         // Required empty public constructor
@@ -52,7 +55,12 @@ public class PhoneFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_phone, container, false);
         listView = (ListView) view.findViewById(R.id.phone_list);
-        emtyView = (TextView) view.findViewById(android.R.id.empty);
+        emptyView = (TextView) view.findViewById(android.R.id.empty);
+
+        progress = new ProgressDialog(getActivity());
+        progress.setMessage("Please wait ....");
+        progress.setMax(100);
+        progress.show();
 
         // Inflate the layout for this fragment
         return view;
@@ -85,14 +93,14 @@ public class PhoneFragment extends Fragment {
                         final String phone = phones.get(0);
                         if (phone == null) {
                             listView.setVisibility(View.GONE);
-                            emtyView.setVisibility(View.VISIBLE);
+                            emptyView.setVisibility(View.VISIBLE);
                         }else {
                             adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, phones);
                             listView.setAdapter(adapter);
                             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                 @Override
                                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                                   String phone = "tel:" + parent.getItemAtPosition(position).toString().trim();
+                                    String phone = "tel:" + parent.getItemAtPosition(position).toString().trim();
                                     Intent intent = new Intent(Intent.ACTION_DIAL);
                                     intent.setData(Uri.parse(phone));
                                     startActivity(intent);
@@ -100,6 +108,7 @@ public class PhoneFragment extends Fragment {
                                 }
                             });
                         }
+                        progress.hide();
                     }
                 },
                 new Response.ErrorListener() {

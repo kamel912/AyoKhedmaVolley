@@ -1,6 +1,5 @@
-package com.ayokhedma.ayokhedma.UserInterface;
+package com.ayokhedma.ayokhedma.userInterface;
 
-import android.app.ProgressDialog;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
@@ -14,15 +13,13 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.ayokhedma.ayokhedma.Adapters.FragmentPageAdapter;
-import com.ayokhedma.ayokhedma.Fragments.CommentFragment;
-import com.ayokhedma.ayokhedma.Fragments.DescriptionFragment;
-import com.ayokhedma.ayokhedma.Fragments.PhoneFragment;
+import com.ayokhedma.ayokhedma.adapters.FragmentPageAdapter;
+import com.ayokhedma.ayokhedma.fragments.CommentFragment;
+import com.ayokhedma.ayokhedma.fragments.DescriptionFragment;
+import com.ayokhedma.ayokhedma.fragments.PhoneFragment;
 import com.ayokhedma.ayokhedma.R;
-import com.bumptech.glide.Glide;
 
 public class ObjectActivity extends AppCompatActivity {
 
@@ -32,8 +29,7 @@ public class ObjectActivity extends AppCompatActivity {
     ViewPager pager;
     TabLayout tabLayout;
     FragmentPageAdapter pageAdapter;
-    ImageView obj_pic;
-    private String objimage_path = "http://www.fatmanoha.com/ayokhedma/images/object/";
+
 
 
 
@@ -92,9 +88,7 @@ public class ObjectActivity extends AppCompatActivity {
             }
         });
 
-        obj_pic = (ImageView) findViewById(R.id.obj_img);
-        String path = objimage_path + id + ".png";
-        Glide.with(this).load(path).into(obj_pic);
+
 
 
     }

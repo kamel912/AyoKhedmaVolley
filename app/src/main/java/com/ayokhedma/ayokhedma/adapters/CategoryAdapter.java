@@ -1,4 +1,4 @@
-package com.ayokhedma.ayokhedma.Adapters;
+package com.ayokhedma.ayokhedma.adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,9 +10,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.ayokhedma.ayokhedma.Models.CategoryModel;
+import com.ayokhedma.ayokhedma.models.CategoryModel;
 import com.ayokhedma.ayokhedma.R;
-import com.ayokhedma.ayokhedma.UserInterface.CategoryObjectsActivity;
+import com.ayokhedma.ayokhedma.userInterface.CategoryObjectsActivity;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
@@ -81,6 +81,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView
                     bundle.putString("name", catName);
                     intent.putExtras(bundle);
                     context.startActivity(intent);
+
                 }
             });
 

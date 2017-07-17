@@ -1,11 +1,11 @@
-package com.ayokhedma.ayokhedma.Models;
+package com.ayokhedma.ayokhedma.models;
 
 /**
  * Created by MK on 09/06/2017.
  */
 
 public class CommentModel {
-    private String userid,username,subject,commentBody,objid;
+    private String userid, name,subject,commentBody,objid;
 
     public CommentModel(String userid, String subject, String commentBody, String objid) {
         this.userid = userid;
@@ -16,7 +16,7 @@ public class CommentModel {
 
     public CommentModel(String userid, String username, String subject, String commentBody, String objid) {
         this.userid = userid;
-        this.username = username;
+        this.name = username;
         this.subject = subject;
         this.commentBody = commentBody;
         this.objid = objid;
@@ -26,8 +26,8 @@ public class CommentModel {
         return userid;
     }
 
-    public String getUsername() {
-        return username;
+    public String getName() {
+        return name;
     }
 
     public String getSubject() {

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/list"
-    tools:context="com.ayokhedma.ayokhedma.UserInterface.CategoriesActivity">
+    tools:context="com.ayokhedma.ayokhedma.userInterface.CategoriesActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/cat_toolbar"

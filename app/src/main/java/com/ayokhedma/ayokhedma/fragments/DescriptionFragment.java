@@ -1,4 +1,4 @@
-package com.ayokhedma.ayokhedma.Fragments;
+package com.ayokhedma.ayokhedma.fragments;
 
 
 import android.app.ProgressDialog;
@@ -10,6 +10,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,12 +20,13 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.ayokhedma.ayokhedma.Models.ObjectModel;
-import com.ayokhedma.ayokhedma.Connection.MySingleton;
-import com.ayokhedma.ayokhedma.Models.RateModel;
-import com.ayokhedma.ayokhedma.Models.UserModel;
-import com.ayokhedma.ayokhedma.UserInterface.ObjectActivity;
+import com.ayokhedma.ayokhedma.models.ObjectModel;
+import com.ayokhedma.ayokhedma.connection.MySingleton;
+import com.ayokhedma.ayokhedma.models.RateModel;
+import com.ayokhedma.ayokhedma.models.UserModel;
+import com.ayokhedma.ayokhedma.userInterface.ObjectActivity;
 import com.ayokhedma.ayokhedma.R;
+import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -47,6 +49,8 @@ public class DescriptionFragment extends Fragment{
     UserModel user;
     String id;
     RateModel rateModel;
+    ImageView obj_pic;
+    private String objimage_path = "http://www.fatmanoha.com/ayokhedma/images/object/";
 
     public DescriptionFragment() {
         // Required empty public constructor
@@ -60,6 +64,7 @@ public class DescriptionFragment extends Fragment{
 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_description, container, false);
+        obj_pic = (ImageView) view.findViewById(R.id.obj_img);
         address = (TextView) view.findViewById(R.id.address);
         description = (TextView) view.findViewById(R.id.description);
         worktime = (TextView) view.findViewById(R.id.worktime);
@@ -72,6 +77,13 @@ public class DescriptionFragment extends Fragment{
             }
         });
 
+        progress = new ProgressDialog(getActivity());
+        progress.setMessage("Please wait ....");
+        progress.setMax(100);
+        progress.show();
+
+        String path = objimage_path + id + ".png";
+        Glide.with(getActivity()).load(path).error(R.drawable.defaul).into(obj_pic);
 
         return view;
     }
@@ -88,6 +100,7 @@ public class DescriptionFragment extends Fragment{
         link = "http://www.fatmanoha.com/ayokhedma/object.php?objid=" + id;
         getData();
         getRate();
+
     }
 
     private void getData(){
@@ -111,14 +124,14 @@ public class DescriptionFragment extends Fragment{
                             work = "أوقات العمل : من " + start1 + " إلى " + end1;
                             worktime.setText(work);
                         }else {
-                            work = "أوقات العمل : من " + start1 + " إلى " + end1 + "\n" +
-                              " و من " + start2 + " إلى " + end2;
+                            work =  "أوقات العمل : " + "\n" + "الفترة الأولى : من " +start1 + " إلى " + end1 + "\n" +
+                                     " الفترة الثانية : من  " + start2 + " إلى " + end2;
                             worktime.setText(work);
                         }
                         if (!week.equals("")){
                             weekend.setText("يوم العطلة : " + week);
                         }
-
+                        progress.hide();
                     }
                 },
                 new Response.ErrorListener() {
@@ -130,6 +143,7 @@ public class DescriptionFragment extends Fragment{
         );
         MySingleton.getInstance(getContext()).addRequestQueue(stringRequest);
     }
+
     private void getRate(){
         link = "http://www.fatmanoha.com/ayokhedma/rate.php?";
         gson = new Gson();
@@ -207,6 +221,7 @@ public class DescriptionFragment extends Fragment{
         };
         MySingleton.getInstance(getActivity()).addRequestQueue(stringRequest);
     }
+
     private String trimming(String string){
         List<Character> chars = new ArrayList<>();
         StringBuilder builder = new StringBuilder();

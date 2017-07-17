@@ -13,10 +13,10 @@
         android:theme="@style/AppTheme">
         <meta-data
             android:name="android.app.default_searchable"
-            android:value=".UserInterface.SearchableActivity" />
+            android:value=".userInterface.SearchableActivity" />
 
         <activity
-            android:name=".UserInterface.SplashActivity"
+            android:name=".userInterface.SplashActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,16 +25,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".UserInterface.MainActivity"
+            android:name=".userInterface.MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".UserInterface.CategoryObjectsActivity"
+            android:name=".userInterface.CategoryObjectsActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".UserInterface.ObjectActivity"
+            android:name=".userInterface.ObjectActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".UserInterface.SearchableActivity"
+            android:name=".userInterface.SearchableActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -47,15 +47,15 @@
                 android:resource="@xml/searchable" />
         </activity>
         <activity
-            android:name=".UserInterface.LoginActivity"
+            android:name=".userInterface.LoginActivity"
             android:excludeFromRecents="true"
             android:noHistory="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".UserInterface.RegisterActivity"
+            android:name=".userInterface.RegisterActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".UserInterface.CategoriesActivity"
+            android:name=".userInterface.CategoriesActivity"
             android:launchMode="singleTop" />
     </application>
 

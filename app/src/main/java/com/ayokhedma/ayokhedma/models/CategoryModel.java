@@ -1,4 +1,4 @@
-package com.ayokhedma.ayokhedma.Models;
+package com.ayokhedma.ayokhedma.models;
 
 /**
  * Created by MK on 01/06/2017.

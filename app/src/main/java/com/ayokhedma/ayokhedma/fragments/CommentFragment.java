@@ -1,6 +1,7 @@
-package com.ayokhedma.ayokhedma.Fragments;
+package com.ayokhedma.ayokhedma.fragments;
 
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
@@ -24,12 +25,12 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.ayokhedma.ayokhedma.Adapters.CommentAdapter;
-import com.ayokhedma.ayokhedma.Connection.MySingleton;
-import com.ayokhedma.ayokhedma.Models.CommentModel;
-import com.ayokhedma.ayokhedma.Models.UserModel;
+import com.ayokhedma.ayokhedma.adapters.CommentAdapter;
+import com.ayokhedma.ayokhedma.connection.MySingleton;
+import com.ayokhedma.ayokhedma.models.CommentModel;
+import com.ayokhedma.ayokhedma.models.UserModel;
 import com.ayokhedma.ayokhedma.R;
-import com.ayokhedma.ayokhedma.UserInterface.ObjectActivity;
+import com.ayokhedma.ayokhedma.userInterface.ObjectActivity;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -43,21 +44,23 @@ import java.util.Map;
  */
 public class CommentFragment extends Fragment{
 
-    String id;
+    String id,count;
     private String link;
     private Gson gson;
     private RecyclerView recyclerView;
     private GridLayoutManager layoutManager;
     private List<CommentModel> comments = new ArrayList<>();
     private CommentAdapter adapter;
-    private TextView emptyView;
     private ObjectActivity objectActivity;
     Button add_comment_text,add,cancel;
     CommentModel comment;
     SharedPreferences sharedPreferences;
     UserModel user;
+    TextView comment_count;
     RelativeLayout comments_parent,add_comment_parent;
     EditText subject_field,commentBody_field;
+    ProgressDialog progress;
+
 
     public CommentFragment() {
         // Required empty public constructor
@@ -76,13 +79,7 @@ public class CommentFragment extends Fragment{
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
 
-        emptyView = (TextView) view.findViewById(android.R.id.empty);
-        emptyView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                add();
-            }
-        });
+        comment_count = (TextView) view.findViewById(R.id.comment_count);
         add_comment_text = (Button) view.findViewById(R.id.add_comment_text);
         add = (Button) view.findViewById(R.id.add);
         cancel = (Button) view.findViewById(R.id.cancel);
@@ -105,6 +102,10 @@ public class CommentFragment extends Fragment{
             }
         });
 
+        progress = new ProgressDialog(getActivity());
+        progress.setMessage("Please wait ....");
+        progress.setMax(100);
+        progress.show();
 
         subject_field = (EditText) view.findViewById(R.id.subject_field);
         commentBody_field = (EditText) view.findViewById(R.id.comment_field);
@@ -125,6 +126,7 @@ public class CommentFragment extends Fragment{
         objectActivity = (ObjectActivity) getActivity();
         id = objectActivity.getIntent().getStringExtra("id");
 
+
         link = "http://www.fatmanoha.com/ayokhedma/comment.php?objid=" + id;
         getData();
     }
@@ -137,14 +139,17 @@ public class CommentFragment extends Fragment{
                     public void onResponse(String response) {
                         if(response.equals("null")){
                             recyclerView.setVisibility(View.GONE);
-                            add_comment_text.setVisibility(View.GONE);
-                            emptyView.setVisibility(View.VISIBLE);
+                            comment_count.setText("لا يوجد تعليقات");
                         }else {
                             gson = new Gson();
                             comments = Arrays.asList(gson.fromJson(response, CommentModel[].class));
                             adapter = new CommentAdapter(getActivity(), comments);
                             recyclerView.setAdapter(adapter);
+                            count = String.valueOf(comments.size());
+                            comment_count.setText(commentCount(count));
+
                         }
+                        progress.hide();
 
                     }
                 },
@@ -170,6 +175,7 @@ public class CommentFragment extends Fragment{
         add_comment_parent.setVisibility(View.GONE);
     }
     public void addComment (){
+        progress.show();
         gson = new Gson();
         String userjson = sharedPreferences.getString("userInfo","");
         user = gson.fromJson(userjson,UserModel.class);
@@ -187,6 +193,7 @@ public class CommentFragment extends Fragment{
                     public void onResponse(String response) {
                         gson = new Gson();
                         String message = gson.fromJson(response,String.class);
+                        progress.hide();
                         displayAlert(message);
                     }
                 },
@@ -223,5 +230,24 @@ public class CommentFragment extends Fragment{
         });
         builder.create();
         builder.show();
+    }
+    private String commentCount(String string){
+        String c = null;
+        if (Integer.parseInt(string) < 4 ) {
+            switch (string) {
+                case "1":
+                    c = "واحد تعليق";
+                    break;
+                case "2":
+                    c = "يوجد تعليقان";
+                    break;
+                case "3":
+                    c = "يوجد ثلاثة تعليقات";
+                    break;
+            }
+        }else {
+            c = string + " تعليقات";
+        }
+        return c;
     }
 }

@@ -1,6 +1,5 @@
-package com.ayokhedma.ayokhedma.UserInterface;
+package com.ayokhedma.ayokhedma.userInterface;
 
-import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -8,7 +7,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
@@ -21,8 +19,8 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.ayokhedma.ayokhedma.Connection.MySingleton;
-import com.ayokhedma.ayokhedma.Models.UserModel;
+import com.ayokhedma.ayokhedma.connection.MySingleton;
+import com.ayokhedma.ayokhedma.models.UserModel;
 import com.ayokhedma.ayokhedma.R;
 import com.google.gson.Gson;
 

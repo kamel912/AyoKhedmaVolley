@@ -1,4 +1,4 @@
-package com.ayokhedma.ayokhedma.UserInterface;
+package com.ayokhedma.ayokhedma.userInterface;
 
 import android.app.ProgressDialog;
 import android.app.SearchManager;
@@ -23,11 +23,11 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.ayokhedma.ayokhedma.Adapters.ObjectAdapter;
-import com.ayokhedma.ayokhedma.Adapters.RegionAdapter;
-import com.ayokhedma.ayokhedma.Connection.MySingleton;
-import com.ayokhedma.ayokhedma.Models.ObjectModel;
-import com.ayokhedma.ayokhedma.Models.RegionModel;
+import com.ayokhedma.ayokhedma.adapters.ObjectAdapter;
+import com.ayokhedma.ayokhedma.adapters.RegionAdapter;
+import com.ayokhedma.ayokhedma.connection.MySingleton;
+import com.ayokhedma.ayokhedma.models.ObjectModel;
+import com.ayokhedma.ayokhedma.models.RegionModel;
 import com.ayokhedma.ayokhedma.R;
 import com.google.gson.Gson;
 
@@ -137,7 +137,7 @@ public class CategoryObjectsActivity extends AppCompatActivity  {
                         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                             @Override
                             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                                regid = Integer.toString(parent.getSelectedItemPosition()+1);
+                                regid = ((RegionModel) parent.getItemAtPosition(position)).getId();
                                 if (regid.equals("1")){
                                     progress.show();
                                     link = "http://www.fatmanoha.com/ayokhedma/category.php?catid=" + catid;

@@ -1,4 +1,4 @@
-package com.ayokhedma.ayokhedma.Connection;
+package com.ayokhedma.ayokhedma.connection;
 
 import android.content.Context;
 

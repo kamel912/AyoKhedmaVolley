@@ -1,8 +1,7 @@
-package com.ayokhedma.ayokhedma.Adapters;
+package com.ayokhedma.ayokhedma.adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,13 +11,11 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
-import com.ayokhedma.ayokhedma.Models.ObjectModel;
+import com.ayokhedma.ayokhedma.glideTransform.CircleTransform;
+import com.ayokhedma.ayokhedma.models.ObjectModel;
 import com.ayokhedma.ayokhedma.R;
-import com.ayokhedma.ayokhedma.UserInterface.ObjectActivity;
+import com.ayokhedma.ayokhedma.userInterface.ObjectActivity;
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.drawable.GlideDrawable;
-import com.bumptech.glide.request.RequestListener;
-import com.bumptech.glide.request.target.Target;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +29,6 @@ public class ObjectAdapter extends RecyclerView.Adapter<ObjectAdapter.MyViewHold
     private Context context;
     private List<ObjectModel> objects = new ArrayList<>();
     private String image_path = "http://www.fatmanoha.com/ayokhedma/images/object/";
-    private String image_path2 = "http://www.fatmanoha.com/ayokhedma/images/category/";
 
 
 
@@ -59,12 +55,11 @@ public class ObjectAdapter extends RecyclerView.Adapter<ObjectAdapter.MyViewHold
         holder.count.setText("عدد التقييمات : " + object.getCount());
        // holder.region.setBackgroundColor(Color.parseColor(object.getColor()));
         holder.address.setText("شارع " + object.getStreet() + " " + object.getBeside());
-        holder.rate.setText(Float.toString(object.getRate()) + "/5");
+        holder.rate.setText(Float.toString(object.getRate()));
         holder.rating.setRating(object.getRate());
         String path = image_path + object.getId() + ".png";
-        final String path2 = image_path2 + "icon" + object.getCatId() + ".png";
 
-        Glide.with(context).load(path).into(holder.obj_pic);
+        Glide.with(context).load(path).error(R.drawable.defaulty).transform(new CircleTransform(context)).into(holder.obj_pic);
 
 
         holder.itemView.setTag(object);
@@ -96,13 +91,16 @@ public class ObjectAdapter extends RecyclerView.Adapter<ObjectAdapter.MyViewHold
                     String name = object.getName();
                     String id = object.getId();
                     String category = object.getCategory();
+                    String count = object.getCount();
                     Intent intent = new Intent(context, ObjectActivity.class);
                     Bundle bundle = new Bundle();
                     bundle.putString("name",name);
                     bundle.putString("id",id);
                     bundle.putString("category",category);
+                    bundle.putString("count",count);
                     intent.putExtras(bundle);
                     context.startActivity(intent);
+
                 }
             });
 
@@ -116,6 +114,7 @@ public class ObjectAdapter extends RecyclerView.Adapter<ObjectAdapter.MyViewHold
             rating.setNumStars(5);
         }
     }
+
 
 
 }

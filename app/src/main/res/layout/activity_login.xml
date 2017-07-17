@@ -2,7 +2,7 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_height="match_parent" android:layout_width="match_parent"
-    tools:context=".UserInterface.LoginActivity"
+    tools:context=".userInterface.LoginActivity"
     android:background="@color/colorPrimary"
     android:padding="16dp">
 
@@ -25,10 +25,9 @@
             android:layout_height="wrap_content"
             android:id="@+id/username_field"
             android:layout_below="@+id/username"
-            android:layout_alignRight="@+id/username"
+            android:layout_alignParentRight="true"
             android:background="#ffffff"
-            android:textSize="30sp"
-            />
+            android:textSize="30sp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -38,7 +37,7 @@
             android:textColor="#ffffff"
             android:textSize="20sp"
             android:layout_below="@+id/username_field"
-            android:layout_alignRight="@+id/username_field"
+            android:layout_alignParentRight="true"
             android:layout_marginTop="30dp"/>
 
         <EditText
@@ -49,7 +48,7 @@
             android:id="@+id/password_field"
             android:background="#ffffff"
             android:layout_below="@+id/password"
-            android:layout_alignRight="@+id/password"
+            android:layout_alignParentRight="true"
             android:textSize="30sp"/>
 
         <Button
@@ -61,7 +60,7 @@
             android:layout_below="@+id/password_field"
             android:layout_centerHorizontal="true"
             android:background="@drawable/round_corner"
-            android:layout_marginTop="52dp"
+            android:layout_marginTop="30dp"
             android:onClick="login"/>
 
         <TextView

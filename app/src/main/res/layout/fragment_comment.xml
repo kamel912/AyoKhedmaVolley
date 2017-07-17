@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ayokhedma.ayokhedma.Fragments.CommentFragment">
+    tools:context="com.ayokhedma.ayokhedma.fragments.CommentFragment">
     <RelativeLayout
         android:id="@+id/comments_parent"
         android:layout_width="match_parent"
@@ -19,6 +19,16 @@
             android:textSize="20sp"
             android:background="@color/transparent"
             android:layout_margin="5dp"/>
+        <TextView
+            android:id="@+id/comment_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textColor="@android:color/black"
+            android:layout_alignBaseline="@+id/add_comment_text"
+            android:layout_alignBottom="@+id/add_comment_text"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"/>
         <android.support.v7.widget.RecyclerView
             android:id="@+id/comment_recycler"
             android:layout_width="match_parent"
@@ -26,17 +36,7 @@
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
             android:layout_below="@+id/add_comment_text" />
-        <Button
-            android:id="@android:id/empty"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/addComment"
-            android:textColor="@color/blueDark"
-            android:clickable="true"
-            android:visibility="gone"
-            android:background="@color/transparent"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
+
     </RelativeLayout>
     <RelativeLayout
         android:padding="20dp"
@@ -63,24 +63,28 @@
             android:layout_below="@+id/subject_field"
             android:background="@drawable/round_corner"
             android:padding="15dp"
-            android:layout_above="@+id/add" />
+            android:layout_above="@+id/buttons_parent" />
+        <RelativeLayout
+            android:id="@+id/buttons_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
         <Button
             android:background="@drawable/round_corner"
             android:id="@+id/add"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/add"
-            android:layout_below="@+id/comment_field"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentRight="true"/>
         <Button
+            android:id="@+id/cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/cancel"
-            android:layout_below="@+id/comment_field"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
+            android:background="@drawable/round_corner"
             android:text="@string/cancel"
-            android:background="@drawable/round_corner" />
+            android:layout_alignParentLeft="true"/>
+        </RelativeLayout>
     </RelativeLayout>
 </RelativeLayout>
