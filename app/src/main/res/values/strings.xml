@@ -50,4 +50,7 @@
     <string name="addComment">أضف تعليق</string>
     <string name="cancel">إلغاء</string>
 
+
+    <string name="facebook_app_id">117285105566153</string>
+
 </resources>

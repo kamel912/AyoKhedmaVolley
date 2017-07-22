@@ -91,13 +91,13 @@ public class ObjectAdapter extends RecyclerView.Adapter<ObjectAdapter.MyViewHold
                     String name = object.getName();
                     String id = object.getId();
                     String category = object.getCategory();
-                    String count = object.getCount();
+                    //String count = object.getCount();
                     Intent intent = new Intent(context, ObjectActivity.class);
                     Bundle bundle = new Bundle();
                     bundle.putString("name",name);
                     bundle.putString("id",id);
                     bundle.putString("category",category);
-                    bundle.putString("count",count);
+                    //bundle.putString("count",count);
                     intent.putExtras(bundle);
                     context.startActivity(intent);
 

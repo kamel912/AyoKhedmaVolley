@@ -99,7 +99,7 @@ public class SplashActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-
+                        Toast.makeText(SplashActivity.this, String.valueOf(error), Toast.LENGTH_SHORT).show();
                     }
                 })
         {
